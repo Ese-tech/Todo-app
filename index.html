@@ -2,11 +2,11 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>To-Do List</title>
-	<link href="../dist/output.css" rel="stylesheet" />
-	<!-- npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List</title>
+    <link href="../dist/output.css" rel="stylesheet" />
+    <!-- npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch -->
 
 </head>
 
@@ -15,19 +15,16 @@
         <h1 class="text-center text-4xl font-extrabold mb-8 text-blue-700 tracking-tight drop-shadow">To-Do List</h1>
         <form class="flex mb-8 gap-2" autocomplete="off" onsubmit="return false;">
             <label for="taskInput" class="sr-only">Add a new task</label>
-            <input
-                id="taskInput"
-                type="text"
+            <input id="taskInput" type="text"
                 class="flex-1 p-3 border-2 border-blue-200 rounded-lg focus:outline-none focus:border-blue-500 transition placeholder-gray-400"
                 placeholder="What needs to be done?" maxlength="100" aria-label="Add a new task" />
-            <button
-                id="addButton"
-                type="button"
+            <button id="addButton" type="button"
                 class="bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold shadow hover:bg-blue-700 transition focus:outline-none focus:ring-2 focus:ring-blue-400"
                 aria-label="Add task">
                 <span class="hidden sm:inline">Add</span>
-                <svg class="inline-block sm:hidden w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+                <svg class="inline-block sm:hidden w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
                 </svg>
             </button>
         </form>
@@ -54,11 +51,11 @@
     </main>
 
     <footer class="text-center text-xs text-gray-400 mt-10">
-        &copy; <span id="year"></span> <a href="https://github.com/" class="hover:underline">Ese-tech</a>. All rights reserved.
+        &copy; <span id="year"></span> <a href="https://github.com/" class="hover:underline">Ese-tech</a>. All rights
+        reserved.
     </footer>
 
     <script>
-        // Set current year in footer
         document.getElementById('year').textContent = new Date().getFullYear();
     </script>
     <script src="./app.js"></script>
