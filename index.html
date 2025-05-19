@@ -2,40 +2,65 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>To-Do List</title>
-	<link href="/dist/output.css" rel="stylesheet" />
-	<!-- npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List</title>
+    <link href="/dist/output.css" rel="stylesheet" />
+    <!-- npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch -->
 </head>
 
-<body class="bg-gray-100 font-sans">
-	<div class="max-w-xl mx-auto p-6 bg-white shadow-lg rounded-lg">
-		<h1 class="text-center text-3xl font-semibold mb-4">To-Do List</h1>
-		<div class="flex mb-4">
-			<input id="taskInput" type="text" class="flex-1 p-2 border-2 border-gray-300 rounded-lg mr-2"
-				placeholder="Enter new tasks" />
-			<button id="addButton" class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600">
-				Add Task
-			</button>
-		</div>
+<body class="bg-gradient-to-br from-blue-100 to-purple-200 min-h-screen font-sans">
+    <main class="max-w-xl mx-auto p-8 mt-10 bg-white shadow-2xl rounded-2xl">
+        <h1 class="text-center text-4xl font-extrabold mb-8 text-blue-700 tracking-tight drop-shadow">To-Do List</h1>
+        <form class="flex mb-8 gap-2" autocomplete="off" onsubmit="return false;">
+            <label for="taskInput" class="sr-only">Add a new task</label>
+            <input
+                id="taskInput"
+                type="text"
+                class="flex-1 p-3 border-2 border-blue-200 rounded-lg focus:outline-none focus:border-blue-500 transition placeholder-gray-400"
+                placeholder="What needs to be done?" maxlength="100" aria-label="Add a new task" />
+            <button
+                id="addButton"
+                type="button"
+                class="bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold shadow hover:bg-blue-700 transition focus:outline-none focus:ring-2 focus:ring-blue-400"
+                aria-label="Add task">
+                <span class="hidden sm:inline">Add</span>
+                <svg class="inline-block sm:hidden w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+                </svg>
+            </button>
+        </form>
 
-		<ul id="taskList" class="space-y-3"></ul>
+        <ul id="taskList" class="space-y-3"></ul>
 
-		<div class="flex justify-between mt-6">
-			<button id="filterAll" class="bg-gray-400 text-white py-2 px-4 rounded-lg hover:bg-gray-500">
-				All
-			</button>
-			<button id="filterCompleted" class="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600">
-				Completed
-			</button>
-			<button id="filterUncompleted" class="bg-yellow-500 text-white py-2 px-4 rounded-lg hover:bg-yellow-600">
-				Uncompleted
-			</button>
-		</div>
-	</div>
+        <nav class="flex justify-between mt-10 gap-2" aria-label="Task filters">
+            <button id="filterAll"
+                class="flex-1 bg-gray-200 text-gray-800 py-2 px-4 rounded-lg font-medium hover:bg-gray-300 transition focus:outline-none focus:ring-2 focus:ring-blue-400"
+                aria-label="Show all tasks">
+                All
+            </button>
+            <button id="filterCompleted"
+                class="flex-1 bg-green-200 text-green-900 py-2 px-4 rounded-lg font-medium hover:bg-green-300 transition focus:outline-none focus:ring-2 focus:ring-blue-400"
+                aria-label="Show completed tasks">
+                Completed
+            </button>
+            <button id="filterUncompleted"
+                class="flex-1 bg-yellow-200 text-yellow-900 py-2 px-4 rounded-lg font-medium hover:bg-yellow-300 transition focus:outline-none focus:ring-2 focus:ring-blue-400"
+                aria-label="Show uncompleted tasks">
+                Uncompleted
+            </button>
+        </nav>
+    </main>
 
-	<script src="app.js"></script>
+    <footer class="text-center text-xs text-gray-400 mt-10">
+        &copy; <span id="year"></span> <a href="https://github.com/" class="hover:underline">Your Name</a>. All rights reserved.
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+    <script src="app.js"></script>
 </body>
 
 </html>
